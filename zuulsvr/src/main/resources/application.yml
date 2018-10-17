@@ -2,7 +2,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"server:
+        include: "*"
 server:
   port: 5555
 

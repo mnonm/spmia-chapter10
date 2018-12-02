@@ -15,5 +15,6 @@ eureka:
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
 
-#server:
-#  contextPath:   /auth
+server:
+  servlet:
+    contextPath:   /auth

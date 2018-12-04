@@ -44,7 +44,7 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "awsdev"
         SERVER_PORT: "8080"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
@@ -63,7 +63,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "awsdev"
         SERVER_PORT: "8901"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
@@ -81,7 +81,7 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "awsdev"
         SERVER_PORT: "8085"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"

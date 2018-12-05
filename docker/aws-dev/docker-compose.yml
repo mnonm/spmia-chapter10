@@ -15,7 +15,6 @@ services:
       links:
          - "eurekaserver:eurekaserver"
       environment:
-         PROFILE: "awsdev"
          EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
          ENCRYPT_KEY:       "IMSYMMETRIC"
 
@@ -28,7 +27,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "configserver:configserver"
       environment:
-        PROFILE: "awsdev"
+        PROFILE: "aws-dev"
         SERVER_PORT: "5555"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
@@ -45,7 +44,7 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "awsdev"
+        PROFILE: "aws-dev"
         SERVER_PORT: "8080"
         ZOOKEEPER_PORT: "2181"
         KAFKASERVER_PORT: "9092"
@@ -66,7 +65,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
       environment:
-        PROFILE: "awsdev"
+        PROFILE: "aws-dev"
         SERVER_PORT: "8901"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
@@ -84,7 +83,7 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "awsdev"
+        PROFILE: "aws-dev"
         SERVER_PORT: "8085"
         ZOOKEEPER_PORT: "2181"
         KAFKASERVER_PORT: "9092"

@@ -44,8 +44,10 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "default"
         SERVER_PORT: "8080"
+        ZOOKEEPER_PORT: "2181"
+        KAFKASERVER_PORT: "9092"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
         KAFKASERVER_URI: "kafkaserver"
@@ -63,7 +65,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "default"
         SERVER_PORT: "8901"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
@@ -81,12 +83,14 @@ services:
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
-        PROFILE: "aws-dev"
+        PROFILE: "default"
         SERVER_PORT: "8085"
+        ZOOKEEPER_PORT: "2181"
+        KAFKASERVER_PORT: "9092"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
         KAFKASERVER_URI: "kafkaserver"
-        ZKSERVER_URI: "kafkaserver"
+        ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/user"
         ENCRYPT_KEY:       "IMSYMMETRIC"
 

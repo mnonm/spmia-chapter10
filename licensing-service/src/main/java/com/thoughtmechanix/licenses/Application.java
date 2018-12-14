@@ -32,10 +32,15 @@ public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
+    // @Bean
+    // public OAuth2RestTemplate oauth2RestTemplate(OAuth2ClientContext oauth2ClientContext,
+    //                                              OAuth2ProtectedResourceDetails details) {
+    //    return new OAuth2RestTemplate(details, oauth2ClientContext);
+    // }
+
     @Bean
-    public OAuth2RestTemplate oauth2RestTemplate(OAuth2ClientContext oauth2ClientContext,
-                                                 OAuth2ProtectedResourceDetails details) {
-        return new OAuth2RestTemplate(details, oauth2ClientContext);
+    public OAuth2RestTemplate restTemplate(UserInfoRestTemplateFactory factory) {
+        return factory.getUserInfoRestTemplate();
     }
 
     @Bean

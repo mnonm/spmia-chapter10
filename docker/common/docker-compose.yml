@@ -41,6 +41,7 @@ services:
         - "configserver:configserver"
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
+        - "zookeeper:zookeeper"
         - "kafkaserver:kafkaserver"
         - "authenticationservice:authenticationservice"
       environment:
@@ -52,7 +53,7 @@ services:
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
         KAFKASERVER_URI: "kafkaserver"
         ZKSERVER_URI: "zookeeper"
-        AUTHSERVER_URI:   "http://authenticationservice:8901/user"
+        AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
         ENCRYPT_KEY:       "IMSYMMETRIC"
 
   authenticationservice:
@@ -91,7 +92,7 @@ services:
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
         KAFKASERVER_URI: "kafkaserver"
         ZKSERVER_URI: "zookeeper"
-        AUTHSERVER_URI:   "http://authenticationservice:8901/user"
+        AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
         ENCRYPT_KEY:       "IMSYMMETRIC"
 
   zookeeper:

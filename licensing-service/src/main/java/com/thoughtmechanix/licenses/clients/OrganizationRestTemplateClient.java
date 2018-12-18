@@ -45,7 +45,7 @@ public class OrganizationRestTemplateClient {
         Organization org = checkRedisCache(organizationId);
 
         if (org!=null){
-            logger.debug("I have successfully retrieved an organization {} from the redis cache: {}", organizationId, org);
+            logger.debug("I have successfully retrieved an organization {} from the redis cache: {}.", organizationId, org);
             return org;
         }
 

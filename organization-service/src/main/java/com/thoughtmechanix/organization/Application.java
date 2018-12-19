@@ -16,8 +16,8 @@ import javax.servlet.Filter;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@EnableBinding(Source.class)
 @EnableResourceServer
+@EnableBinding(Source.class)
 public class Application {
     @Bean
     public Filter userContextFilter() {

@@ -24,8 +24,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@EnableBinding(Sink.class)
 @EnableResourceServer
+@EnableBinding(Sink.class)
 public class Application {
 
     @Autowired

@@ -59,6 +59,11 @@ public class Application {
         return template;
     }
 
+   @StreamListener(Sink.INPUT)
+   public void loggerSink(OrganizationChangeModel orgChange) {
+       logger.debug("Received an event for organization id {}", orgChange.getOrganizationId());
+   }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

@@ -1,6 +1,7 @@
 package com.thoughtmechanix.licenses;
 
 import com.thoughtmechanix.licenses.config.ServiceConfig;
+import com.thoughtmechanix.licenses.events.models.OrganizationChangeModel;
 import com.thoughtmechanix.licenses.utils.UserContextInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +12,11 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;

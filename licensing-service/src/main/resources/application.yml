@@ -2,7 +2,7 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
+        inboundOrgChanges:
           destination: orgChangeTopic
           content-type: application/json
           group: licensingGroup
@@ -10,6 +10,10 @@ spring:
         binder:
           zkNodes: localhost
           brokers: localhost
+#     input:
+#       destination: orgChangeTopic
+#       content-type: application/json
+#       group: licensingGroup
 eureka:
   instance:
     preferIpAddress: true

@@ -1,10 +1,9 @@
-package com.thoughtmechanix.licenses.events;
-
+package com.thoughtmechanix.organization.events;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
 
 public interface CustomChannels {
-    @Input("inboundOrgChanges")
-    SubscribableChannel inboundOrgChanges();
+    @Input("outboundOrgChanges")
+    SubscribableChannel outboundOrgChanges();
 }

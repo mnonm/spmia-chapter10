@@ -16,6 +16,7 @@ services:
          - "eurekaserver:eurekaserver"
       environment:
          EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+         EUREKASERVER_PORT: "8761"
          ENCRYPT_KEY:       "IMSYMMETRIC"
 
   zuulserver:
@@ -31,7 +32,9 @@ services:
         SERVER_PORT: "5555"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-
+        DATABASESERVER_PORT: "5432"
+        EUREKASERVER_PORT:   "8761"
+        CONFIGSERVER_PORT:   "8888"
   licensingservice:
       image: dockerever/tmx-licensing-service:${BUILD_NAME}
       mem_limit: 1073741824
@@ -55,6 +58,10 @@ services:
         ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
         ENCRYPT_KEY:       "IMSYMMETRIC"
+        DATABASESERVER_PORT: "5432"
+        EUREKASERVER_PORT:   "8761"
+        CONFIGSERVER_PORT:   "8888"
+        ZUULSERVER_PORT:     "5555"
 
   authenticationservice:
       image: dockerever/tmx-authentication-service:${BUILD_NAME}
@@ -68,6 +75,8 @@ services:
       environment:
         PROFILE: "aws-dev"
         SERVER_PORT: "8901"
+        EUREKASERVER_PORT:   "8761"
+        CONFIGSERVER_PORT:   "8888"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
         ENCRYPT_KEY:       "IMSYMMETRIC"
@@ -98,6 +107,7 @@ services:
 
   zookeeper:
     image: wurstmeister/zookeeper
+    mem_limit: 1073741824
     container_name: zookeeper
     restart: always
     ports:
@@ -105,9 +115,9 @@ services:
 
   kafkaserver:
       image: wurstmeister/kafka
+      mem_limit: 1073741824
       container_name: kafka
       restart: always
-      mem_limit: 1073741824
       ports:
         - 9092:9092
       depends_on:

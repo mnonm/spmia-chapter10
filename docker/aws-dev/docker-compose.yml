@@ -2,14 +2,14 @@ version: '2'
 services:
   eurekaserver:
      image:   dockerever/tmx-eurekasvr:${BUILD_NAME}
-     mem_limit: 1073741824
+#     mem_limit: 1073741824
      ports:
          - "8761:8761"
 
   configserver:
       image: dockerever/tmx-confsvr:${BUILD_NAME}
       #mem_limit: 1073741824
-      mem_limit: 1000000000
+#      mem_limit: 1000000000
       ports:
          - "8888:8888"
       links:

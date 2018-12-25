@@ -35,6 +35,7 @@ services:
         DATABASESERVER_PORT: "5432"
         EUREKASERVER_PORT:   "8761"
         CONFIGSERVER_PORT:   "8888"
+
   database:
     image: postgres:9.5
     ports:
@@ -43,6 +44,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=p0stgr@s
       - POSTGRES_DB=eagle_eye_local
+
   licensingservice:
       image: dockerever/tmx-licensing-service:${BUILD_NAME}
 #      mem_limit: 1073741824
@@ -71,7 +73,6 @@ services:
         CONFIGSERVER_PORT:   "8888"
         ZUULSERVER_PORT:     "5555"
         REDIS_PORT:          "6379"
-        ENCRYPT_KEY:       "IMSYMMETRIC"
 
   authenticationservice:
       image: dockerever/tmx-authentication-service:${BUILD_NAME}
@@ -119,10 +120,12 @@ services:
         ZUULSERVER_PORT:     "5555"
         KAFKASERVER_PORT:    "2181"
         ENCRYPT_KEY:       "IMSYMMETRIC"
+
   redis:
     image: redis:alpine
     ports:
       - 6379:6379
+
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper

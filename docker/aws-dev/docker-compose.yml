@@ -103,6 +103,9 @@ services:
         KAFKASERVER_URI: "kafkaserver"
         ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
+        EUREKASERVER_PORT:   "8761"
+        CONFIGSERVER_PORT:   "8888"
+        ZUULSERVER_PORT:     "5555"
         ENCRYPT_KEY:       "IMSYMMETRIC"
 
   zookeeper:

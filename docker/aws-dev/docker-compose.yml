@@ -100,7 +100,7 @@ services:
         KAFKASERVER_PORT: "9092"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-        KAFKASERVER_URI: "kafkaserver"
+        KAFKASERVER_URI: "kafka"
         ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
         DATABASESERVER_PORT: "5432"

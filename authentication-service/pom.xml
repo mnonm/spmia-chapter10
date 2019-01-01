@@ -13,14 +13,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.3.RELEASE</version>
+    <version>2.1.1.RELEASE</version>
   </parent>
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Finchley.RELEASE</version>
+        <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -66,11 +66,10 @@
           <artifactId>spring-cloud-security</artifactId>
       </dependency>
 
-      <!-- <dependency>
+      <dependency>
         <groupId>org.springframework.security.oauth.boot</groupId>
         <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-        <version>2.0.3.RELEASE</version>
-      </dependency> -->
+      </dependency>
 
       <dependency>
           <groupId>org.springframework.security</groupId>
@@ -97,7 +96,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
     <start-class>com.thoughtmechanix.authentication.Application</start-class>
     <docker.image.name>dockerever/tmx-authentication-service</docker.image.name>
     <docker.image.tag>${env.BUILD_NAME}</docker.image.tag>
@@ -151,4 +150,11 @@
          </plugin>
      </plugins>
  </build>
+ <repositories>
+   <repository>
+     <id>spring-milestones</id>
+     <name>Spring Milestones</name>
+     <url>https://repo.spring.io/milestone</url>
+   </repository>
+ </repositories>
 </project>

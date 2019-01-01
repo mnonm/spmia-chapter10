@@ -45,7 +45,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
         - "zookeeper:zookeeper"
-        - "kafkaserver:kafkaserver"
+        - "kafka:kafka"
         - "authenticationservice:authenticationservice"
       environment:
         PROFILE: "aws-dev"
@@ -54,7 +54,7 @@ services:
         KAFKASERVER_PORT: "9092"
         CONFIGSERVER_URI: "http://configserver:8888"
         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-        KAFKASERVER_URI: "kafkaserver"
+        KAFKASERVER_URI: "kafka"
         ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
         ENCRYPT_KEY:       "IMSYMMETRIC"
@@ -91,7 +91,7 @@ services:
         - "eurekaserver:eurekaserver"
         - "zuulserver:zuulserver"
         - "zookeeper:zookeeper"
-        - "kafkaserver:kafkaserver"
+        - "kafka:kafka"
         - "authenticationservice:authenticationservice"
       environment:
         PROFILE: "aws-dev"
@@ -103,6 +103,7 @@ services:
         KAFKASERVER_URI: "kafkaserver"
         ZKSERVER_URI: "zookeeper"
         AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
+        DATABASESERVER_PORT: "5432"
         EUREKASERVER_PORT:   "8761"
         CONFIGSERVER_PORT:   "8888"
         ZUULSERVER_PORT:     "5555"
@@ -115,20 +116,15 @@ services:
     restart: always
     ports:
       - "2181:2181"
-    environment:
-      - KAFKA_ADVERTISED_HOST_NAME=zookeeper
-  kafkaserver:
+  kafka:
       image: wurstmeister/kafka
       mem_limit: 1073741824
       container_name: kafka
       restart: always
       ports:
         - "9092:9092"
-      depends_on:
-        - zookeeper
       links:
-        - zookeeper:zookeeper
+        - "zookeeper:zookeeper"
       environment:
-        - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1
-        - KAFKA_ADVERTISED_PORT=9092
-        - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+        KAFKA_ADVERTISED_HOST_NAME: kafka
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181

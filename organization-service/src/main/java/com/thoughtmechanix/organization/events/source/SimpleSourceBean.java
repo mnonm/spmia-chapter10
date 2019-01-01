@@ -14,19 +14,19 @@ import com.thoughtmechanix.organization.events.CustomChannels;
 
 @Component
 public class SimpleSourceBean {
-    // @Autowired
-    // private Source source;
-    private final MessageChannel outboundOrgChanges;
+    private Source source;
+    // private final MessageChannel outboundOrgChanges;
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleSourceBean.class);
 
     @Autowired
-    // public SimpleSourceBean(Source source){
-    //     this.source = source;
-    // }
-    public SimpleSourceBean(CustomChannels channels){
-      this.outboundOrgChanges = channels.outboundOrgChanges();
+    public SimpleSourceBean(Source source){
+        this.source = source;
     }
+    // @Autowired
+    // public SimpleSourceBean(CustomChannels channels){
+    //   this.outboundOrgChanges = channels.outboundOrgChanges();
+    // }
 
     public void publishOrgChange(String action,String orgId){
        logger.debug("Sending Kafka message {} for Organization Id: {}", action, orgId);
@@ -36,8 +36,8 @@ public class SimpleSourceBean {
                 orgId,
                 UserContext.getCorrelationId());
 
-        //source.output().send(MessageBuilder.withPayload(change).build());
-        this.outboundOrgChanges.send(MessageBuilder.withPayload(change).build());
+        source.output().send(MessageBuilder.withPayload(change).build());
+        // this.outboundOrgChanges.send(MessageBuilder.withPayload(change).build());
 
     }
 }

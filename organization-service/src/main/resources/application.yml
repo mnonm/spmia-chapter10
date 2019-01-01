@@ -2,13 +2,16 @@ spring:
   cloud:
     stream:
       bindings:
-        outboundOrgChanges:
+        output:
             destination:  orgChangeTopic
             content-type: application/json
+        # inboundOrgChanges:
+        #   destination: orgChangeTopic
+        #   content-type: application/json
         kafka:
           binder:
-            zkNodes: localhost
-            brokers: localhost
+            # zkNodes: localhost #no longer needed in 2.0
+            brokers: kafka
 
 #Setting the logging levels for the service
 logging:

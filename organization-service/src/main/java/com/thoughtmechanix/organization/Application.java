@@ -18,7 +18,8 @@ import com.thoughtmechanix.organization.events.CustomChannels;
 @EnableEurekaClient
 @EnableCircuitBreaker
 @EnableResourceServer
-@EnableBinding(CustomChannels.class)
+@EnableBinding(Source.class)
+// @EnableBinding(CustomChannels.class)
 public class Application {
     @Bean
     public Filter userContextFilter() {

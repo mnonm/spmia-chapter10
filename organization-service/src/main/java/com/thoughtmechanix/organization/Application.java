@@ -22,7 +22,7 @@ import com.thoughtmechanix.organization.events.CustomChannels;
 // @EnableBinding(CustomChannels.class)
 public class Application {
     @Bean
-    public Filter getUserContextFilter() {
+    public Filter userContextFilter() {
         UserContextFilter userContextFilter = new UserContextFilter();
         return userContextFilter;
     }

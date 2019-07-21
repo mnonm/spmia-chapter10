@@ -1,13 +1,13 @@
 version: '2'
 services:
   eurekaserver:
-     image:   dockerever/tmx-eurekasvr:${BUILD_NAME}
+     image:   ppsosqq/tmx-eurekasvr:${BUILD_NAME}
 #     mem_limit: 1073741824
      ports:
          - "8761:8761"
 
   configserver:
-      image: dockerever/tmx-confsvr:${BUILD_NAME}
+      image: ppsosqq/tmx-confsvr:${BUILD_NAME}
       #mem_limit: 1073741824
 #      mem_limit: 1000000000
       ports:
@@ -20,7 +20,7 @@ services:
          ENCRYPT_KEY:       "IMSYMMETRIC"
 
   zuulserver:
-      image: dockerever/tmx-zuulsvr:${BUILD_NAME}
+      image: ppsosqq/tmx-zuulsvr:${BUILD_NAME}
       mem_limit: 1073741824
       ports:
         - "5555:5555"
@@ -36,7 +36,7 @@ services:
         EUREKASERVER_PORT:   "8761"
         CONFIGSERVER_PORT:   "8888"
   licensingservice:
-      image: dockerever/tmx-licensing-service:${BUILD_NAME}
+      image: ppsosqq/tmx-licensing-service:${BUILD_NAME}
       mem_limit: 1073741824
       ports:
         - "8080:8080"
@@ -64,7 +64,7 @@ services:
         ZUULSERVER_PORT:     "5555"
 
   authenticationservice:
-      image: dockerever/tmx-authentication-service:${BUILD_NAME}
+      image: ppsosqq/tmx-authentication-service:${BUILD_NAME}
       mem_limit: 1073741824
       ports:
         - "8901:8901"
@@ -82,7 +82,7 @@ services:
         ENCRYPT_KEY:       "IMSYMMETRIC"
 
   organizationservice:
-      image: dockerever/tmx-organization-service:${BUILD_NAME}
+      image: ppsosqq/tmx-organization-service:${BUILD_NAME}
       mem_limit: 1073741824
       ports:
         - "8085:8085"

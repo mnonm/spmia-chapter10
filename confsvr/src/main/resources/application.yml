@@ -21,7 +21,7 @@ spring:
         # encrypt.enabled property should be defined in bootstrap.yml
         # encrypt.enabled: false
         git:
-          uri: https://github.com/klimtever/config-repo
+          uri: https://github.com/mnonm/config-repo
           searchPaths: licensingservice,organizationservice,specialroutesservice,zuulservice,authenticationservice
           username: native-cloud-apps
           password: 0ffended

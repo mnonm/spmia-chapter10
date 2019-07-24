@@ -127,6 +127,7 @@ services:
         - "zookeeper:zookeeper"
       environment:
         # ECS instance (Docker host) local IP address (static or dynamic way)
-#        KAFKA_ADVERTISED_HOST_NAME: 172.31.0.79
-        HOSTNAME_COMMAND: "wget -t3 -T2 -qO-  http://169.254.169.254/latest/meta-data/local-ipv4"
+        KAFKA_ADVERTISED_HOST_NAME: 172.31.11.125
+#        HOSTNAME_COMMAND: "curl http://169.254.169.254/latest/meta-data/local-ipv4"
+#        HOSTNAME_COMMAND: "wget -t3 -T2 -qO-  http://169.254.169.254/latest/meta-data/local-ipv4"
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
